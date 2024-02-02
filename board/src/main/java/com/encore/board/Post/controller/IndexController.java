@@ -1,4 +1,4 @@
-package com.encore.board.controller;
+package com.encore.board.Post.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
