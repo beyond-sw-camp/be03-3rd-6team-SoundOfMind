@@ -1,6 +1,7 @@
 package com.encore.board.comment.domain;
 
-import com.encore.board.Post.domain.Post;
+import com.encore.board.post.domain.Active;
+import com.encore.board.post.domain.Post;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,9 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Getter
@@ -26,15 +25,10 @@ public class Comment {
     @Column(nullable = false, length = 300)
     private String contents;
 
-//    @Column(nullable = false)
-//    private Long memberId;
-
-    @Column(nullable = false)
-    private Long postId;
-
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "N")
-    private Active active;
+    @Column(nullable = false)
+    @Builder.Default()
+    private com.encore.board.post.domain.Active active = Active.valueOf("N");
 
     @CreationTimestamp
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")

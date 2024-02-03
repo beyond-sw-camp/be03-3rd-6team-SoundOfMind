@@ -1,4 +1,4 @@
-package com.encore.board.Post.service;
+package com.encore.board.post.service;
 
 import org.springframework.stereotype.Service;
 
